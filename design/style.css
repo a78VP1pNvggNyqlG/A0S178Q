@@ -1,4 +1,4 @@
-body{font-family:'Source Han Serif CN';color:#333}
+body{margin:0;font-family:'Source Han Serif CN';color:#333}
 #title{font-size:3em;font-family:'Source Han Serif CN';font-weight:600;margin:1rem auto;text-align:center}
 .mainnav>ul{list-style:none;margin:0 auto;padding:0;max-width:960px;display:flex;justify-content:center}
 a{color:#333;text-decoration:none;transition:all .1s}
@@ -28,3 +28,4 @@ figcaption{text-align:center;vertical-align:middle}
 .like{transform:translate(48px,-10px)}
 .diff{transform:translate(-48px,-10px)}
 .item:hover .like,.item:hover .diff{transform:translate(0,-10px);visibility:visible;opacity:1}
+footer{height:24em;border-top:solid 4px #c42;background:#444}
