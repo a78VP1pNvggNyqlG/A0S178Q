@@ -1,7 +1,7 @@
 <!doctype html>
 <meta charset=utf-8>
 <link rel=stylesheet href=style.css>
-<title>首页设计</title>
+<title>商品类别</title>
 <header>
 	<div class=w>
 		<img src=user.svg alt="账户">
@@ -34,7 +34,7 @@
 		</li>
 		<li><a href=#>服饰</a>
 			<ul>
-				<li><a href=category.html>西服</a></li>
+				<li><a href=#>西服</a></li>
 				<li><a href=#>大衣</a></li>
 				<li><a href=#>牛仔裤</a></li>
 				<li><a href=#>冲锋衣</a></li>
@@ -75,14 +75,45 @@
 	</ul>
 </nav>
 <div id=items>
-	<div class=r12>
-		<!-- Random Public Domain images -->
-		<a href=item.html><img src=4.jpeg alt=服装示例></a>
-		<a href=item.html><img src=2.jpeg alt=服装示例></a>
-		<a href=item.html><img src=3.jpeg alt=服装示例></a>
+	<h2>西服</h2>
+	<div class=filter>
+		<h4>面料</h4>
+		<menu>
+			<li><label><input type=checkbox>丝绸</label><span class=count>(123)</span>
+			<li><label><input type=checkbox>苎麻</label><span class=count>(22)</span>
+			<li><label><input type=checkbox>亚麻</label><span class=count>(52)</span>
+			<li><label><input type=checkbox>蚕丝</label><span class=count>(359)</span>
+			<li><label><input type=checkbox>涤纶</label><span class=count>(431)</span>
+			<li><label><input type=checkbox>棉</label><span class=count>(155)</span>
+			<li><label><input type=checkbox>羊毛</label><span class=count>(243)</span>
+		</menu>
+		<h4>价格</h4>
+		<menu>
+			<li><label><input type=checkbox>< ¥500</label><span class=count>(331)</span>
+			<li><label><input type=checkbox>¥500–¥1000</label><span class=count>(412)</span>
+			<li><label><input type=checkbox>¥1000–¥2000</label><span class=count>(317)</span>
+			<li><label><input type=checkbox>¥2000–¥5000</label><span class=count>(311)</span>
+			<li><label><input type=checkbox>¥5000–¥10000</label><span class=count>(254)</span>
+			<li><label><input type=checkbox>¥10000–¥100000</label><span class=count>(124)</span>
+			<li><label><input type=checkbox>> ¥100000</label><span class=count>(47)</span>
+		</menu>
+		<h4>颜色</h4>
+		<div class=palette>
+			<span style="background:white"></span>
+			<span style="background:black"></span>
+			<span style="background:#3429D6"></span>
+			<span style="background:#E52E2E"></span>
+			<span style="background:#27D136"></span>
+			<span style="background:#C19821"></span>
+			<span style="background:#754101"></span>
+			<span style="background:#AFE3FF"></span>
+			<span style="background:#0F1267"></span>
+			<span style="background:#797676"></span>
+			<span style="background:#4B4B4B"></span>
+			<span style="background:#890889"></span>
+			<span style="background:linear-gradient(30deg,#3429D6 0%,#E52E2E 50%,#27D136 100%)"></span>
+		</div>
 	</div>
-	<hr>
-	<h2>推荐商品</h2>
 	<div class=rec>
 		<figure class=item>
 			<a href=item.html><img src=1.jpeg alt></a>

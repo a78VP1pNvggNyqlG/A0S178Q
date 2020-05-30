@@ -1,5 +1,5 @@
 body{margin:0;font-family:'Source Han Serif CN';color:#333}
-#title{font-size:3em;font-family:'Source Han Serif CN';font-weight:600;margin:4rem auto;text-align:center}
+#title{font-size:3em;font-weight:600;margin:4rem auto;text-align:center}
 .mainnav>ul{list-style:none;margin:0 auto;padding:0;max-width:960px;display:flex;justify-content:center}
 a{color:#333;text-decoration:none;transition:all .1s}
 a:hover{color:black}
@@ -19,7 +19,7 @@ a:hover img{filter:brightness(1.2)}
 hr{color:silver;clear:both}
 h2{font-size:1.5em;text-align:center}
 .rec{display:flex;flex-wrap:wrap;justify-content:space-around}
-.item{padding:1em;margin:1em}
+.item{padding:0;margin:1em}
 .item img{max-width:20em;max-height:15em}
 figcaption{text-align:center;vertical-align:middle}
 .cart{background:silver;border-radius:50%;padding:16px;margin:8px;display:inline-block;transition:all .2s}
@@ -33,3 +33,8 @@ figcaption{text-align:center;vertical-align:middle}
 .t{float:right;margin:4px;color:white;font-family:'sans-serif'}
 header{height:2em;border-bottom:solid 4px silver;background:#c42;vertical-align:middle}
 footer{height:24em;border-top:solid 4px #c42;background:#444}
+.filter{float:left;width:12em}
+.filter menu{list-style:none;padding:0}
+/*.filter input[type=checkbox]{display:none}*/
+.filter .count{color:silver;float:right}
+.palette span{width:2em;height:1em;border:2px solid silver;display:inline-block}
