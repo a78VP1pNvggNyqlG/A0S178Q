@@ -3,8 +3,8 @@ body{margin:0;font-family:'Source Han Serif CN';color:#333}
 .mainnav>ul{list-style:none;margin:0 auto;padding:0;max-width:960px;display:flex;justify-content:center}
 a{color:#333;text-decoration:none;transition:all .1s}
 a:hover{color:black}
-a img{transition:all .5s}
-a:hover img{filter:brightness(1.2)}
+a img{transition:all .2s}
+a:hover img{filter:brightness(1.05)}
 .mainnav>ul>li{display:inline-block;margin:0.5em 1em}
 .mainnav>ul>li>a{display:inline-block;position:relative;padding:0.5em 1em}
 .mainnav>ul>li>a::after{content:'';width:0;border-bottom:solid 2px black;position:absolute;bottom:0;left:0;border-color:#c42;transition:all .1s ease-in}
@@ -17,19 +17,18 @@ a:hover img{filter:brightness(1.2)}
 .r12>*:first-child{float:left;width:65%;margin-right:2%}
 .r12>*:not(:first-child){float:left;width:30%;margin-bottom:2%}
 hr{color:silver;clear:both}
-h2{font-size:1.5em;text-align:center}
+.cat{font-size:1.5em;text-align:center}
 .rec{display:flex;flex-wrap:wrap;justify-content:space-around}
 .item{padding:0;margin:1em}
-.item img{max-width:20em;max-height:15em}
-figcaption{text-align:center;vertical-align:middle}
+.item img{max-width:20em;max-height:15em;margin:auto}
+figcaption{text-align:center;vertical-align:middle;line-height:1.5em}
 .cart{background:silver;border-radius:50%;padding:16px;margin:8px;display:inline-block;transition:all .2s}
 .like,.diff{visibility:hidden;opacity:0;background:silver;border-radius:50%;padding:12px;margin:6px;display:inline-block;transition:all .2s}
-.cart:hover,.like:hover,.diff:hover{background:#c42}
+.cart:hover,.like:hover,.diff:hover{background:#c42;cursor:pointer}
 .like{transform:translate(48px,-10px)}
 .diff{transform:translate(-48px,-10px)}
 .item:hover .like,.item:hover .diff{transform:translate(0,-10px);visibility:visible;opacity:1}
-.w{max-width:960px;text-align:right;margin:0 auto}
-.w img{margin:4px}
+.w{max-width:960px;margin:0 auto}
 .t{float:right;margin:4px;color:white;font-family:'sans-serif'}
 header{height:2em;border-bottom:solid 4px silver;background:#c42;vertical-align:middle}
 footer{height:24em;border-top:solid 4px #c42;background:#444}
@@ -38,3 +37,29 @@ footer{height:24em;border-top:solid 4px #c42;background:#444}
 /*.filter input[type=checkbox]{display:none}*/
 .filter .count{color:silver;float:right}
 .palette span{width:2em;height:1em;border:2px solid silver;display:inline-block}
+.preview{float:left;margin-right:48px;margin-bottom:48px}
+#viewer{max-width:382px;max-height:382px;display:block;margin:auto}
+.images{display:flex;justify-content:space-between;overflow-x:scroll;width:382px}
+.images img{min-width:64px;min-height:64px;max-width:128px;max-height:128px;cursor:pointer;margin:4px}
+.images img:hover{outline:silver 2px solid}
+.selected{outline:#c42 2px solid !important}
+#sizes,#colors{display:flex;flex-wrap:wrap;padding:0;list-style:none}
+#sizes li{min-width:2em;display:inline-block;background:#eee;text-align:center;user-select:none;padding:4px;margin:4px;outline:1px solid silver;font-family:sans-serif}
+#sizes li:hover,#colors li:hover{outline:gray 2px solid;cursor:pointer}
+#colors li{width:48px;height:48px;margin:4px;outline:2px solid silver}
+#colors img{max-width:100%;max-height:100%;display:block;margin:auto}
+.buy{min-width:8rem;border-radius:1.5rem;background:#c42;border:1px solid #c42;color:white;transition:all .2s;text-align:center;vertical-align:middle;display:inline-block;font-size:1em;padding:0.5em;user-select:none}
+.buy:hover{background:transparent;color:#c42;cursor:pointer}
+.opt{width:2rem;height:2rem;padding:.5rem;border-radius:1.5rem;background:silver;user-select:none;margin-left:1em;transition:all .2s}
+.opt:hover{background:#c42;cursor:pointer}
+#op{display:flex}
+.detail{clear:both;position:relative}
+.tab{list-style:none;display:flex;padding:0;margin:0}
+.tab li{padding:.5em;min-width:4em;text-align:center;transition:all .2s}
+.tab li:hover{cursor:pointer}
+.tab li:hover,.tab .current{background:#c42;color:white}
+.tabbed{border:1px solid silver;width:100%;padding:1em}
+.prop{font-size:0.8em;border-collapse:collapse;width:100%;color:gray;line-height:2em}
+.prop tr{border-bottom:1px solid silver}
+.prop td{width:50%}
+.ssize{padding:.5em;margin:.2em;font-size:.5em;background:#eee;border:1px solid gray}
