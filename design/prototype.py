@@ -12,11 +12,12 @@ statics = \
 	'/icons/diff': ('diff.svg', 'image/svg+xml'),
 	'/icons/cart': ('cart.svg', 'image/svg+xml'),
 	'/icons/user': ('user.svg', 'image/svg+xml'),
+	'/icons/search': ('search.svg', 'image/svg+xml'),
 	'/scripts/selector': ('selector.js', 'application/javascript'),
 }
 
 server = aserv.HTTPServer(statics)
-env = jinja2.Environment(loader=jinja2.FileSystemLoader('templates'))
+env = jinja2.Environment(loader=jinja2.FileSystemLoader('templates'), autoescape=True)
 with open('data.json') as f:
 	data = json.load(f)
 
@@ -34,7 +35,7 @@ def handle(req):
 @server('/category')
 def handle(req):
 	template = env.get_template('category.html')
-	html = template.render(brand=data['brand'], categories=data['nav'], items=data['items'])
+	html = template.render(brand=data['brand'], categories=data['nav'], items=data['items'], cat='所有商品')
 	return Response(body=html, type='text/html;charset=utf-8')
 
 @server('/items/(\d+)')
@@ -57,6 +58,17 @@ def handle(req):
 	except FileNotFoundError:
 		return Response(404)
 	return Response(body=blob, type='image/jpeg')
+
+@server('/search')
+def handle(req):
+	q = req.query.get('q', [''])
+	if len(q) != 1:
+		return Response(400)
+	q = q[0]
+	result = tuple(item for item in data['items'] if item['name'].find(q) != -1)
+	template = env.get_template('category.html')
+	html = template.render(brand=data['brand'], categories=data['nav'], items=result, cat=q, searched=q)
+	return Response(body=html, type='text/html;charset=utf-8')
 
 if __name__ == '__main__':
 	if sys.argv[1:] == ('p',):

@@ -2,7 +2,11 @@
 {% block title %}商品分类{% endblock %}
 {% block content %}
 <div id=items>
-	<h2 class=cat>西服</h2>
+	<h2 class=cat>{{ cat }}</h2>
+	<form class=searcher action=/search>
+		<input name=q value="{{ searched }}" placeholder=搜索商品>
+		<button><img src=/icons/search alt=搜索></button>
+	</form>
 	<div class=filter>
 		<h4>面料</h4>
 		<menu>

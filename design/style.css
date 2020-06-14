@@ -37,6 +37,10 @@ footer{height:24em;border-top:solid 4px #c42;background:#444}
 /*.filter input[type=checkbox]{display:none}*/
 .filter .count{color:silver;float:right}
 .palette span{width:2em;height:1em;border:2px solid silver;display:inline-block}
+.searcher{border:1px solid silver;border-radius:1rem;padding:.5rem 2rem;width:100%}
+.searcher *{background:transparent;border:none;outline:none;font-size:1rem}
+.searcher input{width:80%}
+.searcher button{float:right;cursor:pointer}
 .preview{float:left;margin-right:48px;margin-bottom:48px}
 #viewer{max-width:382px;max-height:382px;display:block;margin:auto}
 .images{display:flex;justify-content:space-between;overflow-x:scroll;width:382px}
