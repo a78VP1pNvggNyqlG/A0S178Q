@@ -67,3 +67,9 @@ footer{height:24em;border-top:solid 4px #c42;background:#444}
 .prop tr{border-bottom:1px solid silver}
 .prop td{width:50%}
 .ssize{padding:.5em;margin:.2em;font-size:.5em;background:#eee;border:1px solid gray}
+.banner{height:6em;border-top:4px solid #c42;position:fixed;bottom:0;width:100%;padding:1em 4em;background:white;animation:.5s ease-out slide}
+.banner a{color:#c42}
+.banner p{margin-top:0}
+.banner button{min-width:6em;padding:1em;background:#4c2;border:none;outline:none;color:white;border-radius:4px;transition:all .2s;font-family:sans-serif}
+.banner button:hover{background:#4d2;cursor:pointer}
+@keyframes slide{from{transform:translate(0,6em);opacity:0}to{transform:translate(0,0);opacity:1}}
