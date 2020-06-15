@@ -1,4 +1,4 @@
-import aserv, jinja2, json, random, sys, ssl
+import aserv, jinja2, json, random, sys, ssl, http.cookies
 from aserv import Response
 
 statics = \
@@ -14,6 +14,7 @@ statics = \
 	'/icons/user': ('user.svg', 'image/svg+xml'),
 	'/icons/search': ('search.svg', 'image/svg+xml'),
 	'/scripts/selector': ('selector.js', 'application/javascript'),
+	'/terms': ('terms.txt', 'text/plain;charset=utf-8'),
 }
 
 server = aserv.HTTPServer(statics)
@@ -26,16 +27,20 @@ lookup = {item['id']: item for item in data['items']}
 def randitems(n):
 	return random.sample(data['items'], min(n, len(data['items'])))
 
+def ask(req):
+	cookies = http.cookies.SimpleCookie(req.headers.get('cookie', ''))
+	return 'consent' not in cookies
+
 @server('/')
 def handle(req):
 	template = env.get_template('index.html')
-	html = template.render(brand=data['brand'], categories=data['nav'], recommendation=randitems(9))
+	html = template.render(asking=ask(req), brand=data['brand'], categories=data['nav'], recommendation=randitems(9))
 	return Response(body=html, type='text/html;charset=utf-8')
 
 @server('/category')
 def handle(req):
 	template = env.get_template('category.html')
-	html = template.render(brand=data['brand'], categories=data['nav'], items=data['items'], cat='所有商品')
+	html = template.render(asking=ask(req), brand=data['brand'], categories=data['nav'], items=data['items'], cat='所有商品')
 	return Response(body=html, type='text/html;charset=utf-8')
 
 @server('/items/(\d+)')
@@ -46,7 +51,7 @@ def handle(req):
 		item = lookup[id]
 	except KeyError:
 		return Response(404)
-	html = template.render(brand=data['brand'], item=item, categories=data['nav'], recommendation=randitems(6))
+	html = template.render(asking=ask(req), brand=data['brand'], item=item, categories=data['nav'], recommendation=randitems(6))
 	return Response(body=html, type='text/html;charset=utf-8')
 
 @server('/images/(\d+)')
@@ -67,8 +72,13 @@ def handle(req):
 	q = q[0]
 	result = tuple(item for item in data['items'] if item['name'].find(q) != -1)
 	template = env.get_template('category.html')
-	html = template.render(brand=data['brand'], categories=data['nav'], items=result, cat=q, searched=q)
+	html = template.render(asking=ask(req), brand=data['brand'], categories=data['nav'], items=result, cat=q, searched=q)
 	return Response(body=html, type='text/html;charset=utf-8')
+
+@server('/consent', 'POST')
+def handle(req):
+	location = req.headers.get('referer', '/')
+	return Response(303, body='已同意用户协议。', headers={'set-cookie': 'consent=;path=/;httpOnly', 'location': location})
 
 if __name__ == '__main__':
 	if sys.argv[1:] == ('p',):

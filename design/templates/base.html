@@ -26,6 +26,12 @@
 </nav>
 {% block content %}
 {% endblock %}
+{% if asking %}
+<div class=banner>
+	<p>使用本网站即表示您同意我们的<a href=/terms target=_blank>用户协议</a>。
+	<form action=/consent method=post><button>同意</button></form>
+</div>
+{% endif %}
 <footer>
 	<!-- 留空 -->
 </footer>
