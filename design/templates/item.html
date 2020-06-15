@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}{{ item.name }}{% endblock %}
+{% block content %}
+<div class=w>
+	<div class=preview>
+		<img id=viewer src={{ item.images[0] }} alt>
+		<div class=images>
+		{% for img in item.images %}
+			<img src={{ img }} alt>
+		{% endfor %}
+		</div>
+	</div>
+	<div class=info>
+		<h2>{{ item.name }}</h2>
+		<p>¥ {{ item.price }}
+		<h4>尺码</h4>
+		<menu id=sizes>
+			{% for size in item.sizes %}
+			<li>{{ size }}
+			{% endfor %}
+		</menu>
+		<h4>颜色</h4>
+		<menu id=colors>
+			{% for img in item.images %}
+			<li><img src={{ img }} alt>
+			{% endfor %}
+		</menu>
+		<div id=op>
+			<a class=buy>立即购买</a>
+			<img class=opt src=/icons/cart alt=加入购物车 title=加入购物车>
+			<img class=opt src=/icons/like alt=收藏 title=收藏>
+			<img class=opt src=/icons/diff alt=比较 title=比较>
+		</div>
+	</div>
+	<div class=detail>
+		<menu class=tab>
+			<li class=current>详情
+			<li>尺码表
+			<li>设计师
+			<li>评价
+		</menu>
+		<div class=tabbed>
+			<table class=prop>
+				{% for k, v in item.properties.items() %}
+				<tr><td>{{ k }}<td>{{ v }}
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+	<div>
+		<h2 class=cat>相关商品</h2>
+		<div class=rec>
+		{% for item in recommendation %}
+			{% include "card.html" %}
+		{% endfor %}
+		</div>
+	</div>
+</div>
+<script src=/scripts/selector></script>
+{% endblock %}

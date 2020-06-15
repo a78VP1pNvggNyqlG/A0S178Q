@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}商品分类{% endblock %}
+{% block content %}
+<div id=items>
+	<h2 class=cat>{{ cat }}</h2>
+	<form class=searcher action=/search>
+		<input name=q value="{{ searched }}" placeholder=搜索商品>
+		<button><img src=/icons/search alt=搜索></button>
+	</form>
+	<div class=filter>
+		<h4>面料</h4>
+		<menu>
+			<li><label><input type=checkbox>丝绸</label><span class=count>(123)</span>
+			<li><label><input type=checkbox>苎麻</label><span class=count>(22)</span>
+			<li><label><input type=checkbox>亚麻</label><span class=count>(52)</span>
+			<li><label><input type=checkbox>蚕丝</label><span class=count>(359)</span>
+			<li><label><input type=checkbox>涤纶</label><span class=count>(431)</span>
+			<li><label><input type=checkbox>棉</label><span class=count>(155)</span>
+			<li><label><input type=checkbox>羊毛</label><span class=count>(243)</span>
+		</menu>
+		<h4>价格</h4>
+		<menu>
+			<li><label><input type=checkbox>< ¥500</label><span class=count>(331)</span>
+			<li><label><input type=checkbox>¥500–¥1000</label><span class=count>(412)</span>
+			<li><label><input type=checkbox>¥1000–¥2000</label><span class=count>(317)</span>
+			<li><label><input type=checkbox>¥2000–¥5000</label><span class=count>(311)</span>
+			<li><label><input type=checkbox>¥5000–¥10000</label><span class=count>(254)</span>
+			<li><label><input type=checkbox>¥10000–¥100000</label><span class=count>(124)</span>
+			<li><label><input type=checkbox>> ¥100000</label><span class=count>(47)</span>
+		</menu>
+		<h4>颜色</h4>
+		<div class=palette>
+			<span style="background:white"></span>
+			<span style="background:black"></span>
+			<span style="background:#3429D6"></span>
+			<span style="background:#E52E2E"></span>
+			<span style="background:#27D136"></span>
+			<span style="background:#C19821"></span>
+			<span style="background:#754101"></span>
+			<span style="background:#AFE3FF"></span>
+			<span style="background:#0F1267"></span>
+			<span style="background:#797676"></span>
+			<span style="background:#4B4B4B"></span>
+			<span style="background:#890889"></span>
+			<span style="background:linear-gradient(30deg,#3429D6 0%,#E52E2E 50%,#27D136 100%)"></span>
+		</div>
+	</div>
+	<div class=rec>
+	{% for item in items %}
+		{% include "card.html" %}
+	{% endfor %}
+	</div>
+	<div style=clear:both></div>
+</div>
+{% endblock %}

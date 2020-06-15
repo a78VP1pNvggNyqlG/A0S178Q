@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}轻奢电商平台{% endblock %}
+{% block content %}
+<div id=items>
+	<div class=r12>
+		<!-- Random Public Domain images -->
+		<a href=item.html><img src=showcases/1 alt=服装示例></a>
+		<a href=item.html><img src=showcases/2 alt=服装示例></a>
+		<a href=item.html><img src=showcases/3 alt=服装示例></a>
+	</div>
+	<hr>
+	<h2 class=cat>推荐商品</h2>
+	<div class=rec>
+	{% for item in recommendation %}
+		{% include "card.html" %}
+	{% endfor %}
+	</div>
+</div>
+{% endblock %}

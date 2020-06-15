@@ -1,0 +1,31 @@
+<!doctype html>
+<meta charset=utf-8>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200;300;400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel=stylesheet href=/style>
+<title>{% block title %}{% endblock %}</title>
+<header>
+	<div class=w style=text-align:right>
+		<img src=/icons/user alt="账户" style=margin:4px>
+		<span class=t>登录</span>
+	</div>
+</header>
+<h1 id=title><a href=/>{{ brand }}</a></h1>
+<nav class=mainnav>
+	<ul>
+		{% for cat in categories %}
+		<li><a href=/category>{{ cat.name }}</a>
+			{% if cat.sub is defined %}
+			<ul>
+				{% for it in cat.sub %}
+				<li><a href=/category>{{ it }}</a>
+				{% endfor %}
+			</ul>
+			{% endif %}
+		{% endfor %}
+	</ul>
+</nav>
+{% block content %}
+{% endblock %}
+<footer>
+	<!-- 留空 -->
+</footer>

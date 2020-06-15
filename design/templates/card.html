@@ -1,0 +1,14 @@
+<figure class=item>
+	<a href=/items/{{ item.id }}><img src={{ item.images[0] }} alt></a>
+	<figcaption>
+		<a href=/items/{{ item.id }}><big>{{ item.name }}</big></a><br>
+		{% for size in item.sizes %}
+		<span class=ssize>{{ size }}</span>
+		{% endfor %}
+		<br>
+		<small>¥ {{ item.price }}</small><br>
+		<img class=like src=/icons/like alt="喜欢">
+		<img class=cart src=/icons/cart alt="购买">
+		<img class=diff src=/icons/diff alt="对比">
+	</figcaption>
+</figure>
